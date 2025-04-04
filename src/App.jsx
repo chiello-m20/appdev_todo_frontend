@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 
-const API_URL = "http://appdev-todo-backend.onrender.com/api/tasks/";  // Replace with your Render URL
+const API_URL = "https://appdev-todo-backend.onrender.com/api/tasks/";  // Replace with your Render URL
 
 function App() {
   const [tasks, setTasks] = useState([]);
