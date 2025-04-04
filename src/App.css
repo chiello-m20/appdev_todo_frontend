@@ -1,0 +1,288 @@
+/* === Global Styles === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f2f9f1;
+  transition: background 0.3s ease-in-out;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #1a1a1a;
+}
+
+/* === Main Container === */
+.app {
+  width: 800px; /* Fixed width */
+  height: 550px; /* Fixed height */
+  padding: 35px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  transition: background 0.3s ease-in-out, box-shadow 0.3s ease;
+  overflow: hidden;
+  border: 1px solid #ddeedf;
+}
+
+.dark-mode .app {
+  background: #2b2b2b;
+  color: #ffffff;
+  box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* === App Title === */
+.app-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #333;
+  letter-spacing: 1.5px;
+}
+
+.dark-mode .app-title {
+  color: #ffffff;
+}
+
+/* === Dark Mode Toggle Button === */
+.dark-mode-toggle {
+  background: #5c715e;
+  color: white;
+  padding: 15px 25px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-bottom: 25px;
+}
+
+.dark-mode-toggle:hover {
+  background: #4a5a4c;
+  transform: scale(1.05);
+}
+
+/* === Add Task Section === */
+.add-task-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ddeedf;
+  padding: 15px 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .add-task-container {
+  background: #3a3a3a;
+}
+
+.task-input {
+  flex: 1;
+  padding: 14px;
+  border: 1px solid #b6cdbd;
+  border-radius: 8px;
+  outline: none;
+  font-size: 16px;
+  background: transparent;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.task-input:focus {
+  border: 1px solid #5c715e;
+  box-shadow: 0 0 8px rgba(92, 113, 94, 0.5);
+}
+
+.task-add-btn {
+  padding: 14px 25px;
+  background: #5c715e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-left: 10px;
+}
+
+.task-add-btn:hover {
+  background: #4a5a4c;
+  transform: scale(1.05);
+}
+
+/* === Filter Buttons === */
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.filter-btn {
+  flex: 1;
+  margin: 0 5px;
+  padding: 12px;
+  background: #ddeedf;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.3s ease, transform 0.2s ease;
+  font-size: 16px;
+}
+
+.dark-mode .filter-btn {
+  background: #3a3a3a;
+  color: white;
+}
+
+.filter-btn.active {
+  background: #5c715e;
+  color: white;
+}
+
+.filter-btn:hover {
+  background: #b6cdbd;
+  transform: scale(1.05);
+}
+
+/* === Task List === */
+.task-list {
+  list-style: none;
+  padding: 0;
+  overflow-y: auto; /* Enable vertical scroll */
+  max-height: 200px; /* Fixed height for the scrollable area */
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ddeedf;
+  padding: 15px 20px;
+  margin: 12px 0;
+  border-radius: 12px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  flex-wrap: nowrap;
+}
+
+.dark-mode .task-item {
+  background: #3a3a3a;
+}
+
+.task-item.completed {
+  background: #b6cdbd;
+  opacity: 0.7;
+}
+
+.dark-mode .task-item.completed {
+  background: #4a4a4a;
+}
+
+.task-text {
+  flex: 1;
+  cursor: pointer;
+  min-height: 24px;
+}
+
+.task-item.completed .task-text {
+  text-decoration: line-through;
+  color: gray;
+}
+
+/* === Task Edit Input === */
+.task-edit-input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #b6cdbd;
+  border-radius: 8px;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  min-height: 24px;
+  min-width: 0;
+}
+
+.task-edit-input:focus {
+  border: 1px solid #5c715e;
+  box-shadow: 0 0 8px rgba(92, 113, 94, 0.5);
+}
+
+/* === Edit Mode Styles === */
+.edit-mode {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.task-save-btn,
+.task-cancel-btn {
+  margin-left: 10px;
+}
+
+/* === Save & Cancel Buttons (Already Implemented) === */
+.task-save-btn,
+.task-cancel-btn,
+.task-edit-btn,
+.task-delete-btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+/* Save Button */
+.task-save-btn {
+  background: #5c715e;
+  color: white;
+}
+
+.task-save-btn:hover {
+  background: #4a5a4c;
+  transform: scale(1.05);
+}
+
+/* Cancel Button */
+.task-cancel-btn {
+  background: #d9534f;
+  color: white;
+}
+
+.task-cancel-btn:hover {
+  background: #c9302c;
+  transform: scale(1.05);
+}
+
+/* Edit Button */
+.task-edit-btn {
+  background: #ffc107;
+  color: white;
+  margin-left: 10px;
+}
+
+.task-edit-btn:hover {
+  background: #e0a800;
+  transform: scale(1.05);
+}
+
+/* Delete Button */
+.task-delete-btn {
+  background: #dc3545;
+  color: white;
+  margin-left: 10px;
+}
+
+.task-delete-btn:hover {
+  background: #c82333;
+  transform: scale(1.05);
+}
